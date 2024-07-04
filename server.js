@@ -7,7 +7,7 @@ const db = require("./db.json");
 const router = jsonServer.router(db);
 const middlewares = jsonServer.defaults();
 
-const port = process.env.PORT || 3000;
+// const port = process.env.PORT || 3000;
 
 const rules = auth.rewriter({
   // 將所有以 /api/ 開頭的路徑重寫為去掉 /api/ 的路徑
@@ -32,8 +32,8 @@ server.use('/api/login', (req, res, next) => {
 server.use(rules);
 server.use(auth);
 server.use(router)
-server.listen(port, () => {
-    console.log('JSON Server is running on:', port)
+server.listen(3000, () => {
+    console.log('JSON Server is running on:', 3000)
 })
 
 // Export the Server API
