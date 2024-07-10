@@ -21,11 +21,22 @@ const rules = auth.rewriter({
 
 server.use(cors())
 server.use(middlewares)
+// server.use(jsonServer.bodyParser)
+
 server.db = router.db;
 
 // 當接收到 /login 相關方法時執行
 server.use('/api/login', (req, res, next) => {
   console.log('/api/login!');
+  
+  // 模擬一個錯誤
+  // const isError = true;
+  // if (isError) {
+  //   return res.status(400).json({
+  //     error: '自訂的錯誤訊息：登入失敗，請檢查您的帳號和密碼。',
+  //   });
+  // }
+  
   next();
 })
 
